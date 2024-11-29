@@ -1,0 +1,11 @@
+.services {
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+.sSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
