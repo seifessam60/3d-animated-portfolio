@@ -53,8 +53,8 @@ const Hero = () => {
           >
             <motion.h2 variants={awardVariants}>Top Rated Developer</motion.h2>
             <motion.p variants={awardVariants}>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.amet
-              consectetur, adipisicing elit
+              Dedicated to crafting seamless and intuitive user experiences
+              through innovative front-end development.
             </motion.p>
             <motion.div variants={awardVariants} className='awardList'>
               <motion.img
@@ -206,7 +206,7 @@ const Hero = () => {
           </motion.a>
         </div>
         <div className='bg'>
-          <Suspense fallback={'Loading...'}>
+          <Suspense fallback={"Loading..."}>
             <Shape />
           </Suspense>
           <div className='hImg'>
