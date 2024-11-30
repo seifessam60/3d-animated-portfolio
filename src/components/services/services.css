@@ -88,6 +88,10 @@
 }
 
 @media (max-width: 1280px) {
+  .sTitle {
+    font-size: 128px;
+  }
+
   .service {
     width: 100% !important;
   }

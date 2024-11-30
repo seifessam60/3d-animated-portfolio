@@ -154,7 +154,6 @@
     }
   }
 }
-
 @media (max-width: 1536px) {
   .hTitle {
     font-size: 72px;
@@ -229,10 +228,10 @@
   .hSection.right {
     justify-content: end;
   }
-  
+
   .follow,
-  .certificate,
-  .bubbleContainer {
-    display: none !important;
+  .bubbleContainer,
+  .certificate {
+    display: none;
   }
 }

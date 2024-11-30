@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import  { Suspense, useEffect, useRef, useState } from "react";
 import "./portfolio.css";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
+import LazyLoad from "react-lazyload";
 const imgVariants = {
   initial: {
     x: -500,
@@ -76,18 +77,18 @@ const ListItem = ({ item }) => {
   const ref = useRef();
   const inInView = useInView(ref, { margin: "-100px" });
   return (
-    <div className='pItem' ref={ref}>
+    <div className="pItem" ref={ref}>
       <motion.div
         variants={imgVariants}
         animate={inInView ? "animate" : "initial"}
-        className='pImg'
+        className="pImg"
       >
         <img src={item.img} alt={item.title} />
       </motion.div>
       <motion.div
         variants={textVariants}
         animate={inInView ? "animate" : "initial"}
-        className='pText'
+        className="pText"
       >
         <motion.h1 variants={textVariants}>{item.title}</motion.h1>
         <motion.p variants={textVariants}>{item.desc}</motion.p>
@@ -114,46 +115,48 @@ const Portfolio = () => {
     }
   }, []);
   return (
-    <div id='portfolio' ref={ref}>
-      <div className='portfolio'>
-        <motion.div className='pList' style={{ x: xTranslate }}>
-          <div
-            className='empty'
-            style={{ width: window.innerWidth - containerDistance }}
-          />
-          {items.map((item) => (
-            <ListItem item={item} key={item.id} />
-          ))}
-        </motion.div>
-        <section />
-        <section />
-        <section />
-        <section />
-        <section />
-        <div className='pProgress'>
-          <svg width='100%' height='100%' viewBox='0 0 160 160'>
-            <circle
-              cx='80'
-              cy='80'
-              r='70'
-              fill='none'
-              stroke='#ddd'
-              strokeWidth={20}
-            />
-            <motion.circle
-              cx='80'
-              cy='80'
-              r='70'
-              fill='none'
-              stroke='#dd4c62'
-              strokeWidth={20}
-              style={{ pathLength: scrollYProgress }}
-              transform='rotate(-90 80 80)'
-            />
-          </svg>
+ 
+        <div id="portfolio" ref={ref}>
+          <div className="portfolio">
+            <motion.div className="pList" style={{ x: xTranslate }}>
+              <div
+                className="empty"
+                style={{ width: window.innerWidth - containerDistance }}
+              />
+              {items.map((item) => (
+                <ListItem item={item} key={item.id} />
+              ))}
+            </motion.div>
+            <section />
+            <section />
+            <section />
+            <section />
+            <section />
+            <div className="pProgress">
+              <svg width="100%" height="100%" viewBox="0 0 160 160">
+                <circle
+                  cx="80"
+                  cy="80"
+                  r="70"
+                  fill="none"
+                  stroke="#ddd"
+                  strokeWidth={20}
+                />
+                <motion.circle
+                  cx="80"
+                  cy="80"
+                  r="70"
+                  fill="none"
+                  stroke="#dd4c62"
+                  strokeWidth={20}
+                  style={{ pathLength: scrollYProgress }}
+                  transform="rotate(-90 80 80)"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+ 
   );
 };
 
